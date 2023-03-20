@@ -1,7 +1,5 @@
 import { useState, useEffect } from 'react'
 
-import logo from './assets/logo.png'
-
 function App() {
   const [count, setCount] = useState(15)
   let timer = null
@@ -9,12 +7,13 @@ function App() {
   const start = () => {
     if (count > 0) {
       clearTimeout(timer)
+      navigator.vibrate(0)
       setCount(0)
     }
   }
   useEffect(() => {
-    if (count === 10) window.navigator.vibrate([500, 20, 500])
-    if (count === 15) window.navigator.vibrate([500, 50, 500, 50, 500, 50, 500])
+    if (count === 10) navigator.vibrate([500, 20, 500])
+    if (count === 15) navigator.vibrate([500, 50, 500, 50, 500, 50, 500])
     if (count < 15) {
       timer = setTimeout(() => {
         setCount(count + 1)
