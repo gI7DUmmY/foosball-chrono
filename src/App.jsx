@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react'
 
+import github from './assets/github-white.svg'
+
 function App() {
   const [count, setCount] = useState(15)
   let timer = null
@@ -23,15 +25,26 @@ function App() {
 
   return (
     <div className='App'>
-      <div className='container min-w-full min-h-screen bg-slate-800 flex flex-col items-center gap-8 select-none'>
-        <h1 className='text-5xl text-center font-semibold text-slate-200 p-2'>
+      <div className='container min-w-full min-h-screen bg-slate-800 flex flex-col items-center gap-4 select-none'>
+        <a
+          href='https://github.com/gI7DUmmY/foosball-chrono'
+          rel='noreferrer'
+          target='_blank'
+        >
+          <img
+            src={github}
+            alt='logo github'
+            className='w-auto h-8 fixed top-2 right-2'
+          />
+        </a>
+        <h1 className='text-5xl text-center font-semibold text-slate-200 p-2 mt-8'>
           Foosball Chrono
         </h1>
-        <div className='font-extrabold text-[200px] subpixel-antialiased text-yellow-500'>
+        <div className='font-extrabold text-[150px] subpixel-antialiased text-yellow-500 md:text-[180px]'>
           {count}
         </div>
         <div
-          className='w-11/12 h-64 bg-slate-700 font-semibold cursor-pointer rounded-xl px-4 py-5 text-slate-200 fixed bottom-4 flex items-center md:h-4/6'
+          className='w-11/12 h-2/5 bg-slate-700 font-semibold cursor-pointer rounded-xl px-4 py-5 text-slate-200 fixed bottom-4 flex items-center md:h-3/5'
           onClick={() => start()}
         >
           <p className='w-full text-center text-7xl'>
