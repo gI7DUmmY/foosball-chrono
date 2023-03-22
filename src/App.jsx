@@ -10,21 +10,21 @@ function App() {
   // }
 
   let timer = null
-  let canVibrate = window.navigator.vibrate
+  // let canVibrate = window.navigator.vibrate
 
   const start = () => {
-    if (count > 0 && canVibrate) {
+    if (count > 0) {
       clearTimeout(timer)
       // navigator.vibrate(0)
       setCount(0)
     }
   }
   useEffect(() => {
-    if (count === 10 && canVibrate) {
+    if (count === 10) {
       // navigator.vibrate([500, 20, 500])
       Haptics.vibrate()
     }
-    if (count === 15 && canVibrate) {
+    if (count === 15) {
       // navigator.vibrate([500, 50, 500, 50, 500, 50, 500])
       Haptics.vibrate()
     }
