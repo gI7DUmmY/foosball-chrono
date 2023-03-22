@@ -1,21 +1,33 @@
 import { useState, useEffect } from 'react'
+import { Haptics } from '@capacitor/haptics'
 
 import github from './assets/github-white.svg'
 
 function App() {
   const [count, setCount] = useState(15)
+  // let hapticsVibrate = async d => {
+  //   await Haptics.vibrate(d)
+  // }
+
   let timer = null
+  let canVibrate = window.navigator.vibrate
 
   const start = () => {
-    if (count > 0) {
+    if (count > 0 && canVibrate) {
       clearTimeout(timer)
-      navigator.vibrate(0)
+      // navigator.vibrate(0)
       setCount(0)
     }
   }
   useEffect(() => {
-    if (count === 10) navigator.vibrate([500, 20, 500])
-    if (count === 15) navigator.vibrate([500, 50, 500, 50, 500, 50, 500])
+    if (count === 10 && canVibrate) {
+      // navigator.vibrate([500, 20, 500])
+      Haptics.vibrate()
+    }
+    if (count === 15 && canVibrate) {
+      // navigator.vibrate([500, 50, 500, 50, 500, 50, 500])
+      Haptics.vibrate()
+    }
     if (count < 15) {
       timer = setTimeout(() => {
         setCount(count + 1)
