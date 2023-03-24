@@ -60,7 +60,7 @@ function App() {
           onClick={() => start()}
         >
           <p className='w-full text-center text-7xl'>
-            {count > 0 && count < 15 ? 'RESET' : 'START'}
+            {-1 < count && count < 15 ? 'RESET' : 'START'}
           </p>
         </div>
       </div>
