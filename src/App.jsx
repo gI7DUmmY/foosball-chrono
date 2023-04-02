@@ -19,6 +19,7 @@ function App() {
       setCount(0)
     }
   }
+
   useEffect(() => {
     if (count === 10) {
       // navigator.vibrate([500, 20, 500])
@@ -53,7 +54,9 @@ function App() {
           Foosball Chrono
         </h1>
         <div className='font-extrabold text-[150px] subpixel-antialiased text-yellow-500 md:text-[180px]'>
-          {count}
+          <span className={count === 10 || count === 15 ? 'text-red-700' : ''}>
+            {count}
+          </span>
         </div>
         <div
           className='w-11/12 h-2/5 bg-slate-700 font-semibold cursor-pointer rounded-xl px-4 py-5 text-slate-200 fixed bottom-4 flex items-center md:h-3/5'
