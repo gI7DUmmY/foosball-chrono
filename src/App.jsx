@@ -66,13 +66,19 @@ function App() {
           Foosball Chrono
         </h1>
 
-        {showQrcode && (
+        <div
+          className={
+            showQrcode
+              ? 'transition-opacity ease-in-out opacity-100 duration-300 delay-75 fixed top-[15%]'
+              : 'opacity-0 fixed top-[15%]'
+          }
+        >
           <img
             src={qrcode}
             alt='qrcode'
             className='w-5/6 mx-auto md:max-w-md'
           />
-        )}
+        </div>
 
         {/* compteur */}
         <div
