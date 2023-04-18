@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Haptics } from '@capacitor/haptics'
 
-import { ImQrcode, ImCancelCircle } from 'react-icons/im'
+import { ImQrcode, ImStopwatch } from 'react-icons/im'
 import github from './assets/github-white.svg'
 import qrcode from './assets/qrcode.png'
 
@@ -44,7 +44,7 @@ function App() {
           className='text-slate-200 fixed top-3 left-3 cursor-pointer'
           onClick={() => setShowQrcode(prev => !prev)}
         >
-          {showQrcode && <ImCancelCircle className='w-auto h-8' />}
+          {showQrcode && <ImStopwatch className='w-auto h-8' />}
           {!showQrcode && <ImQrcode className='w-auto h-8' />}
         </button>
 
@@ -66,10 +66,11 @@ function App() {
           Foosball Chrono
         </h1>
 
+        {/* image du QR Code */}
         <div
           className={
             showQrcode
-              ? 'transition-opacity ease-in-out opacity-100 duration-300 delay-75 fixed top-[15%]'
+              ? 'transition-opacity ease-in-out opacity-100 duration-300 delay-75 fixed bottom-[15%]'
               : 'opacity-0 fixed top-[15%]'
           }
         >
@@ -98,7 +99,7 @@ function App() {
           className={
             showQrcode
               ? 'invisible'
-              : 'w-11/12 h-2/5 bg-slate-700 font-semibold cursor-pointer rounded-xl px-4 py-5 text-slate-200 fixed bottom-4 flex items-center md:h-3/5'
+              : 'w-11/12 h-2/5 bg-slate-700 font-semibold cursor-pointer rounded-xl px-4 py-5 text-slate-200 fixed bottom-4 flex items-center md:w-[425px] md:h-2/5'
           }
           onClick={() => start()}
         >
