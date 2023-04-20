@@ -36,21 +36,6 @@ function App() {
     }
   }, [count])
 
-  useEffect(() => {
-    const handleKeyDown = e => {
-      if (e.key === 'AudioVolumeUp' || e.key === 'AudioVolumeDown') {
-        console.log(e.code)
-        start()
-      }
-    }
-
-    document.addEventListener('keydown', handleKeyDown)
-
-    return () => {
-      document.removeEventListener('keydown', handleKeyDown)
-    }
-  }, [])
-
   return (
     <div className='App'>
       <div className='container min-w-full min-h-screen bg-slate-800 flex flex-col items-center gap-4 select-none'>
